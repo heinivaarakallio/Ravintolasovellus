@@ -1,36 +1,27 @@
 from flask import Flask
-from flask import redirect, render_template, request, session
-from os import getenv
-from werkzeug.security import check_password_hash, generate_password_hash
+from flask import redirect, render_template, request
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.secret_key = getenv("SECRET_KEY")
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///heinivaa"
+db = SQLAlchemy(app)
 
 @app.route("/")
 def index():
-    return render_template("test.html")
+    return render_template("index.html")
 
-@app.route("/login",methods=["POST"])
-def login():
-    username = request.form["username"]
-    password = request.form["password"]
-    # TODO: check username and password
-    sql = "SELECT id, password FROM users WHERE username_:username"
-    result = db.session.execute(sql, {"username":username})
-    user = result.fetchone()
-    if not user:
-        # TODO: invalid username
-    else:
-        hash_value = user.password
-        if check_password_hash(hash_value, password):
-            # TODO: correct username and password
-        else:
-            # TODO: invalid password
-    session["username"] = username
-    return redirect("/")
+@app.route("/page1")
+def page1():
+    return "Tämä on sivu 1"
 
-@app.route("/logout")
-def logout():
-    del session["username"]
-    return redirect("/")
+@app.route("/page2")
+def page2():
+    return "Tämä on sivu 2"
 
+@app.route("/form")
+def form():
+    return render_template("form.html")
+
+@app.route("/result", methods=["POST"])
+def result():
+    return render_template("result.html", name=request.form["name"])
