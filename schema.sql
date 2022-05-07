@@ -18,3 +18,8 @@ CREATE TABLE reviews (
     user_id INTEGER REFERENCES users,
     review TEXT
 );
+CREATE TABLE groups (
+    id SERIAL PRIMARY KEY,
+    restaurant_id INTEGER REFERENCES restaurants,
+    group TEXT
+);
