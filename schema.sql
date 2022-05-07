@@ -11,11 +11,15 @@ CREATE TABLE users (
 CREATE TABLE opening_hours (
     id SERIAL PRIMARY KEY,
     restaurant_id INTEGER REFERENCES restaurants
+    day INTEGER,
+    opening_time TEXT,
+    closing_time TEXT
 );
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
     restaurant_id INTEGER REFERENCES restaurants,
     user_id INTEGER REFERENCES users,
+    stars INTEGER,
     review TEXT
 );
 CREATE TABLE groups (
