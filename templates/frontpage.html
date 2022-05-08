@@ -6,6 +6,6 @@ Tervetuloa <i>Ravintolasovellukseen</i>! <p> Täällä voit katsella ja lisätä
 <h2>Ravintolat:</h2>
 <hr>
 {% for restaurant in restaurants %}
-{{ restaurant.content }}
+<a href="/new">{{ restaurant.content }}</a>
 <hr>
 {% endfor %}

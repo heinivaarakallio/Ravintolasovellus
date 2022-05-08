@@ -68,3 +68,7 @@ def frontpage():
     result = db.session.execute("SELECT content FROM restaurants")
     restaurants = result.fetchall()
     return render_template("frontpage.html", restaurants=restaurants)
+
+@app.route("/new")
+def new():
+    return render_template("new.html")
