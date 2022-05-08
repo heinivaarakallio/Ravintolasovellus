@@ -19,7 +19,7 @@ def login():
     username = request.form["username"]
     password = request.form["password"]
     session["username"] = username
-    return redirect("/")
+    return redirect("/frontpage")
 
 @app.route("/logout")
 def logout():
@@ -61,5 +61,10 @@ def signup():
         username = request.form["username"]
         password = request.form["password"]
         session["username"] = username
-        return redirect("/")
+        return redirect("/frontpage")
 
+@app.route("/frontpage")
+def frontpage():
+    result = db.session.execute("SELECT content FROM restaurants")
+    restaurants = result.fetchall()
+    return render_template("frontpage.html", restaurants=restaurants)
