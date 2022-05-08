@@ -8,4 +8,5 @@ Ravintolasovelluksessa voit etsiä tietoa ja antaa arvosteluja Etelä-Helsingin 
 - Käyttäjä näkee myös listan, jossa ravintolat on järjestetty parhaimmasta huonoimpaan arvioiden mukaisesti.
 - Ylläpitäjä voi tarvittaessa poistaa käyttäjän antaman arvion.
 - Ylläpitäjä voi luoda ryhmiä, joihin ravintoloita voi luokitella. Ravintola voi kuulua yhteen tai useampaan ryhmään.
+
 Sovellusta voi testata [Herokussa](https://heini-ravintolasovellus.herokuapp.com)
