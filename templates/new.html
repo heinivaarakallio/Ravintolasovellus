@@ -1,0 +1,11 @@
+<title>Ravintolasovellus</title>
+<h1>Ravintolasovellus</h1>
+{% if session.username %}
+<p>Olet kirjautunut nimellä {{ session.username }}</p>
+<a href="/logout">Kirjaudu ulos</a><p>
+<a href="/frontpage">Takaisin ravintolalistaukseen</a>
+<p>Ravintola:</p>
+<p>Aukioloajat:</p>
+<p>Arvostelut:</p>
+{% endif %}
+<img src="/static/onion.jpg">

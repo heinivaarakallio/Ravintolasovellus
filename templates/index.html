@@ -1,0 +1,17 @@
+<title>Ravintolasovellus</title>
+<h1>Ravintolasovellus</h1>
+Tervetuloa <i>Ravintolasovellukseen</i>! <p> Täällä voit katsella ja lisätä arvioita Etelä-Helsingin ravintoloista.</p>
+{% if session.username %}
+<p>Olet kirjautunut nimellä {{ session.username }}</p>
+<a href="/logout">Kirjaudu ulos</a>
+{% else %}
+<form action="/login" method="POST">
+<p>Käyttäjätunnus:<br>
+<input type="text" name="username"></p>
+<p>Salasana:<br>
+<input type="password" name="password"></p>
+<input type="submit" value="Kirjaudu">
+</form>
+Jos sinulla ei ole vielä käyttäjätunnusta, voit tehdä sen <a href="signup">täällä</a>
+{% endif %}
+<img src="/static/onion.jpg">

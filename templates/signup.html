@@ -1,0 +1,19 @@
+<title>Ravintolasovellus</title>
+<h1>Ravintolasovellus</h1>
+Luo uusi käyttäjätunnus<p>
+<form action="/signup" method="POST">
+<p>Käyttäjätunnus:<br>
+<input type="text" name="username">
+<p>Salasana:<br>
+<input type="password" name="password">
+<p>Salasana uudelleen:<br>
+<input type="password" name="password">
+<p>Käyttäjärooli:<br>
+<input type="radio" name="role" value="1" checked>Peruskäyttäjä
+<input type="radio" name="role" value="2" checked>Ylläpitäjä <p>
+<input type="submit" value="Luo käyttäjätunnus">
+</form>
+{% if errormessage %}
+<p style="color:red;">{{ errormessage }}</p>
+{% endif %}
+<img src="/static/onion.jpg">
